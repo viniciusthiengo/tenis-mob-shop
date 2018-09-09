@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="7dp"
+    android:layout_marginLeft="14dp"
+    android:layout_marginRight="14dp"
+    android:layout_marginTop="7dp"
+    android:background="@drawable/item_border_and_background"
+    android:padding="6dp"
+    tools:context="thiengo.com.br.tnismobshop.SneakersActivity">
+
+    <ImageView
+        android:id="@+id/iv_sneaker"
+        android:layout_width="81dp"
+        android:layout_height="81dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@drawable/image_view_sneaker"
+        android:scaleType="fitCenter" />
+
+    <ImageView
+        android:id="@+id/iv_sneaker_gallery_01"
+        style="@style/AppTheme.ItemImgGallery"
+        android:layout_alignTop="@+id/iv_sneaker"
+        android:contentDescription="@string/desc_sneaker_first_gallery_image" />
+
+    <ImageView
+        android:id="@+id/iv_sneaker_gallery_02"
+        style="@style/AppTheme.ItemImgGallery"
+        android:layout_below="@+id/iv_sneaker_gallery_01"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:contentDescription="@string/desc_sneaker_second_gallery_image" />
+
+    <ImageView
+        android:id="@+id/iv_sneaker_gallery_03"
+        style="@style/AppTheme.ItemImgGallery"
+        android:layout_below="@+id/iv_sneaker_gallery_02"
+        android:contentDescription="@string/desc_sneaker_third_gallery_image" />
+
+    <View
+        android:id="@+id/vv_vertical_line"
+        android:layout_width="1dp"
+        android:layout_height="81dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_toEndOf="@+id/iv_sneaker_gallery_01"
+        android:layout_toRightOf="@+id/iv_sneaker_gallery_01"
+        android:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tv_model"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tv_free_delivery"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/tv_free_delivery"
+        android:layout_toEndOf="@id/vv_vertical_line"
+        android:layout_toRightOf="@id/vv_vertical_line"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iv_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_below="@+id/tv_model"
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@id/vv_vertical_line"
+        android:layout_toRightOf="@id/vv_vertical_line"
+        android:contentDescription="@string/desc_sneaker_brand"
+        android:scaleType="fitCenter"
+        android:tint="@color/colorPrimaryLight" />
+
+    <ImageView
+        android:id="@+id/iv_genre_male"
+        style="@style/AppTheme.ItemIconGenre"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_toEndOf="@id/vv_vertical_line"
+        android:layout_toRightOf="@id/vv_vertical_line"
+        android:contentDescription="@string/desc_male_icon"
+        android:src="@drawable/ic_gender_male_white_18dp" />
+
+    <ImageView
+        android:id="@+id/iv_genre_female"
+        style="@style/AppTheme.ItemIconGenre"
+        android:layout_toEndOf="@id/iv_genre_male"
+        android:layout_toRightOf="@id/iv_genre_male"
+        android:contentDescription="@string/desc_female_icon"
+        android:src="@drawable/ic_gender_female_white_18dp" />
+
+    <ImageView
+        android:id="@+id/iv_rating_star_01"
+        style="@style/AppTheme.ItemStar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@id/vv_vertical_line"
+        android:layout_toRightOf="@id/vv_vertical_line" />
+
+    <ImageView
+        android:id="@+id/iv_rating_star_02"
+        style="@style/AppTheme.ItemStar"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/iv_rating_star_01"
+        android:layout_toRightOf="@id/iv_rating_star_01" />
+
+    <ImageView
+        android:id="@+id/iv_rating_star_03"
+        style="@style/AppTheme.ItemStar"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/iv_rating_star_02"
+        android:layout_toRightOf="@id/iv_rating_star_02" />
+
+    <ImageView
+        android:id="@+id/iv_rating_star_04"
+        style="@style/AppTheme.ItemStar"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/iv_rating_star_03"
+        android:layout_toRightOf="@id/iv_rating_star_03" />
+
+    <ImageView
+        android:id="@+id/iv_rating_star_05"
+        style="@style/AppTheme.ItemStar"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/iv_rating_star_04"
+        android:layout_toRightOf="@id/iv_rating_star_04" />
+
+    <TextView
+        android:id="@+id/tv_rating_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_toEndOf="@id/iv_rating_star_05"
+        android:layout_toRightOf="@id/iv_rating_star_05"
+        android:textColor="@android:color/white"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/tv_free_delivery"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/text_view_free_delivery_background"
+        android:gravity="end"
+        android:text="@string/label_free"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tv_put_shop_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_free_delivery"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/text_view_shop_cart_background"
+        android:gravity="start"
+        android:text="@string/label_put_on_shop_cart"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_put_shop_cart"
+        android:background="@drawable/dark_green_background"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:paddingBottom="1dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
+
+        <TextView
+            android:id="@+id/tv_price_parcels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:textColor="@android:color/white"
+            android:textSize="9sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+</RelativeLayout>

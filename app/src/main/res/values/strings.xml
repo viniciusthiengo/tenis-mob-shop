@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Tênis Mob Shop</string>
+
+    <string name="title_activity_thank_you">Voltar para Tênis Shop</string>
+
+    <string name="navigation_drawer_open">Menu gaveta aberto</string>
+    <string name="navigation_drawer_close">Menu gaveta fechado</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="desc_logo_app">Logo Tênis Shop App</string>
+
+    <string name="desc_sneaker_first_gallery_image">
+        Primeira imagem extra da galeria
+    </string>
+    <string name="desc_sneaker_second_gallery_image">
+        Segunda imagem extra da galeria
+    </string>
+    <string name="desc_sneaker_third_gallery_image">
+        Terceira imagem extra da galeria
+    </string>
+
+    <string name="desc_male_icon">Ícone do sexo masculino</string>
+    <string name="desc_female_icon">Ícone do sexo feminino</string>
+
+    <string name="label_free">grátis</string>
+    <string name="label_put_on_shop_cart">Colocar no</string>
+
+    <string name="brazil_free_delivery">Frete grátis para todo Brasil</string>
+    <string name="desc_truck_delivery">Ícone de caminhão para entrega, frete</string>
+
+    <string name="label_recommended">Recomendado para:</string>
+    <string name="label_type">Tipo:</string>
+    <string name="label_composition">Composição:</string>
+    <string name="label_access_rating">Acessar avaliações</string>
+    <string name="label_buy">Comprar</string>
+    <string name="label_description">Descrição:</string>
+
+    <string name="value_stok_invetory_amount">Quantidade</string>
+    <string name="value_stok_invetory_end">em estoque</string>
+    <string name="value_stok_invetory">Quantidade (4 estoque)</string>
+    <string name="value_recommended">Running</string>
+    <string name="value_type">Performance</string>
+    <string name="value_composition">68% Poliamida | 32% Sintético</string>
+    <string name="value_desc">
+        O mais novo Fresh Foam Cruz conta com a nossa
+        premiada tecnologia Fresh Foam para uma corrida
+        estável e de alto amortecimento. Seu cabedal
+        sofisticado combina a junção central do tênis
+        com o mesh respirável para oferecer suporte com
+        uma camada extra de conforto. O Fresh Foam Cruz
+        proporciona uma sensação de frescor ao seu pé,
+        treino após treino.
+    </string>
+
+    <string name="excellent_buy">Excelente compra!</string>
+    <string name="keep_buying">Continuar comprando</string>
+    <string name="dialog_title">Pagamento</string>
+    <string name="desc_credit_cards">Bandeiras de cartão aceitas</string>
+
+    <string name="dialog_label_card_number">Número do cartão:</string>
+    <string name="dialog_hint_card_number">xxxx xxxx xxxx xxxx</string>
+    <string name="dialog_label_card_cvv">Código de segurança - CVV:</string>
+    <string name="dialog_hint_card_cvv">xxx ou xxxx</string>
+    <string name="dialog_label_card_owner">
+        Nome do proprietário do cartão - como está no cartão:
+    </string>
+    <string name="dialog_label_card_expire">Vencimento cartão</string>
+    <string name="dialog_label_card_expire_month">Mês:</string>
+    <string name="dialog_label_card_expire_bar">/</string>
+    <string name="dialog_label_card_expire_year">Ano:</string>
+    <string name="dialog_label_card_total_parcels">
+        <![CDATA[Número de parcelas. Se > 10x tem adição de juros:]]>
+    </string>
+
+    <string name="label_bt_finish_buy">Finalizar compra</string>
+
+    <string name="dialog_label_total">Total:</string>
+    <string name="dialog_label_parcels_without_taxes">
+        em até 10x sem juros
+    </string>
+
+    <string name="desc_sneaker_brand">Marca do tênis</string>
+    <string name="desc_sneaker_bought">Tênis comprado</string>
+    <string name="desc_sneaker_bought_brand">Marca do tênis comprado</string>
+    <string name="label_support_shop">Tel. suporte: 0800 723 6659</string>
+
+    <string name="item_add_to_cart">Adicionar ao carrinho</string>
+    <string name="item_search">Buscar</string>
+    <string name="item_cart">Carrinho</string>
+
+    <string name="track_code_label">Código de rastreamento:</string>
+    <string name="sneacker_label">Tênis:</string>
+
+    <string name="share_content_shared">Conteúdo compartilhado</string>
+    <string name="share_label">Compartilhar</string>
+
+    <string name="until">até</string>
+    <string name="or_in">ou em</string>
+
+    <string name="sneaker">Tênis</string>
+
+    <string name="nav_item_all_brands">Todas as marcas</string>
+    <string name="nav_item_male">Masculino</string>
+    <string name="nav_item_female">Feminino</string>
+    <string name="nav_item_child">Infantil</string>
+    <string name="nav_group_config">Configurações</string>
+    <string name="nav_item_app">Aplicativo</string>
+    <string name="nav_item_account">Conta</string>
+</resources>

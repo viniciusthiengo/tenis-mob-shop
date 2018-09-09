@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Item de definição de background de shape.
+    -->
+    <item>
+        <!--
+            Definindo cor de background; curvatura de pontas;
+            e espaçamento interno.
+        -->
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorPrimaryDark" />
+            <corners android:radius="2dp" />
+            <padding
+                android:bottom="4dp"
+                android:left="4dp"
+                android:right="6dp"
+                android:top="2dp" />
+        </shape>
+    </item>
+
+    <!--
+        Item de definição de imagem de background, posicionada
+        a 39dp à direita da View.
+    -->
+    <item
+        android:width="22dp"
+        android:height="20dp"
+        android:bottom="0dp"
+        android:drawable="@drawable/ic_truck_white_24dp"
+        android:left="0dp"
+        android:right="39dp"
+        android:top="0dp" />
+</layer-list>

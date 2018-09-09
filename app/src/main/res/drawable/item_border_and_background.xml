@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!--
+        Cor de background da View.
+    -->
+    <solid android:color="@android:color/transparent" />
+
+    <!--
+        Curvatura das pontas da View retangular.
+    -->
+    <corners android:radius="2dp" />
+
+    <!--
+        Largura e cor da borda.
+    -->
+    <stroke
+        android:width="1dp"
+        android:color="@android:color/white" />
+</shape>
