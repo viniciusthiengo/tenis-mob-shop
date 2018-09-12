@@ -82,7 +82,9 @@ class SneakersAdapter(
         }
 
         private fun setGallery(sneaker: Sneaker){
-            /* IMAGEM PRINCIPAL DO TÊNIS */
+            /*
+             * Imagem principal do tênis.
+             * */
             ivSneaker.setImageResource( sneaker.imageResource )
             ivSneaker.contentDescription = String.format("%s %s", context.getString(R.string.sneacker_label), sneaker.model)
 
