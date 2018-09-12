@@ -35,5 +35,4 @@
                 android:title="@string/nav_item_account" />
         </menu>
     </item>
-
 </menu>

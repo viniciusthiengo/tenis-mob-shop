@@ -41,7 +41,7 @@ class Database {
                     Rating(91, 5),
                     699.90,
                     ExtraInfo(
-                        2,
+                        4,
                         context.getString(R.string.value_recommended),
                         context.getString(R.string.value_type),
                         context.getString(R.string.value_composition),
@@ -58,7 +58,7 @@ class Database {
                     Rating(29, 3),
                     599.99,
                     ExtraInfo(
-                        8,
+                        4,
                         context.getString(R.string.value_recommended),
                         context.getString(R.string.value_type),
                         context.getString(R.string.value_composition),
@@ -75,7 +75,7 @@ class Database {
                     Rating(84, 4),
                     699.90,
                     ExtraInfo(
-                        3,
+                        4,
                         context.getString(R.string.value_recommended),
                         context.getString(R.string.value_type),
                         context.getString(R.string.value_composition),
@@ -92,7 +92,7 @@ class Database {
                     Rating(19, 5),
                     349.90,
                     ExtraInfo(
-                        6,
+                        4,
                         context.getString(R.string.value_recommended),
                         context.getString(R.string.value_type),
                         context.getString(R.string.value_composition),
@@ -109,7 +109,7 @@ class Database {
                     Rating(42, 5),
                     749.99,
                     ExtraInfo(
-                        1,
+                        4,
                         context.getString(R.string.value_recommended),
                         context.getString(R.string.value_type),
                         context.getString(R.string.value_composition),

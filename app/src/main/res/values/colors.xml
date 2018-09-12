@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#388E3C</color>
-    <color name="colorPrimaryDark">#00600f</color>
+    <color name="colorPrimaryDark">#00600F</color>
     <color name="colorPrimaryLight">#81E281</color>
     <color name="colorAccent">#1976D2</color>
 
     <color name="colorAccentDark">#00600F</color>
-
-    <color name="colorDarkRedButtonText">#D09696</color>
-
-    <color name="colorFacebook">#4266B2</color>
-    <color name="colorTwitter">#1DA1F2</color>
 
     <color name="colorDarkDialog">#5B646E</color>
 
     <color name="colorBgNavigationView">#F5F5F7</color>
 
     <color name="colorContentLabel">#CCCCCC</color>
+
+    <color name="colorFreeDelivery">#CCFFFFFF</color>
 </resources>

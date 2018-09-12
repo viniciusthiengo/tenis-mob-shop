@@ -21,8 +21,8 @@ class SneakersAdapter(
             viewType: Int ) : SneakersAdapter.ViewHolder {
 
         val v = LayoutInflater
-            .from(context)
-            .inflate(R.layout.sneaker, parent, false)
+                .from(context)
+                .inflate(R.layout.sneaker, parent, false)
 
         return ViewHolder(v)
     }

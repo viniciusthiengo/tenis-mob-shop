@@ -15,37 +15,29 @@ import kotlinx.android.synthetic.main.activity_sneaker_details.*
 import kotlinx.android.synthetic.main.content_sneaker_details.*
 import thiengo.com.br.tnismobshop.domain.Sneaker
 import thiengo.com.br.tnismobshop.util.Util
+import java.util.*
 
 class SneakerDetailsActivity : AppCompatActivity(),
         View.OnClickListener,
         AdapterView.OnItemSelectedListener {
 
-    lateinit var model : String
+    lateinit var sneaker : Sneaker
+    var amount: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sneaker_details)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar
-                .make(view, getString(R.string.share_content_shared), Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.share_label), null)
-                .show()
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        fab.setOnClickListener( this )
 
         /*
          * Foi prefirível utilizar sneaker como uma propriedade local,
          * pois assim evitaremos a necessidade de sempre ter de verificar
          * null.
          * */
-        val sneaker = intent.getParcelableExtra<Sneaker>(Sneaker.KEY)
-
-        /*
-         * Modelo tênis.
-         * */
-        model = sneaker.model
+        sneaker = intent.getParcelableExtra<Sneaker>(Sneaker.KEY)
 
         /*
          * Marca.
@@ -75,7 +67,7 @@ class SneakerDetailsActivity : AppCompatActivity(),
         /*
          * Preços, quantidade em estoque e botão comprar.
          * */
-        tv_price.text = String.format("%s %s", sneaker.getPriceParcelsAsString(), getString(R.string.or_in))
+        tv_price.text = String.format("%s %s", sneaker.getPriceAsString(), getString(R.string.or_in))
         tv_price_parcels.text = String.format("%s %s", getString(R.string.until), sneaker.getPriceParcelsAsString())
         tv_amount.text = sneaker.extraInfo.getStockFormatted(this)
         bt_buy.setOnClickListener(this)
@@ -105,7 +97,7 @@ class SneakerDetailsActivity : AppCompatActivity(),
      * */
     override fun onResume() {
         super.onResume()
-        toolbar.title = model
+        toolbar.title = sneaker.model
     }
 
     /*
@@ -118,8 +110,31 @@ class SneakerDetailsActivity : AppCompatActivity(),
         return true
     }
 
-    override fun onClick(view: View?) {
-        callPaymentDialog()
+    override fun onClick( view: View ) {
+        /*
+         * Respondendo ao acionamento do FloatingActionButton.
+         * */
+        if( view.id == fab.id ){
+            Snackbar
+                    .make( view, getString( R.string.share_content_shared ), Snackbar.LENGTH_LONG )
+                    .setAction( getString( R.string.share_label ), null )
+                    .show()
+        }
+
+        /*
+         * Respondendo ao acionamento do Button de finalizar
+         * compra, presente na caixa de diálogo de pagamento.
+         * */
+        else if( view.id == R.id.bt_finish_buy ){
+            buy()
+        }
+
+        /*
+         * Respondendo ao acionamento do Button "Comprar".
+         * */
+        else{
+            callPaymentDialog()
+        }
     }
 
     /*
@@ -129,10 +144,11 @@ class SneakerDetailsActivity : AppCompatActivity(),
     override fun onItemSelected(
             adapterView: AdapterView<*>,
             view: View,
-            i: Int,
-            l: Long ) {
+            position: Int,
+            id: Long ) {
 
         (adapterView.getChildAt(0) as TextView).gravity = Gravity.CENTER
+        amount = position + 1
     }
     override fun onNothingSelected(adapterView: AdapterView<*>?) {}
 
@@ -143,28 +159,29 @@ class SneakerDetailsActivity : AppCompatActivity(),
      * também.
      * */
     fun callPaymentDialog() {
-        val sneaker = intent.getParcelableExtra<Sneaker>(Sneaker.KEY)
         val builder = AlertDialog.Builder(this)
         val dialogLayout = getLayoutInflater()
-            .inflate( R.layout.dialog_payment,null )
+                .inflate( R.layout.dialog_payment,null )
 
         builder.setView(dialogLayout)
 
         dialogLayout
             .findViewById<TextView>(R.id.tv_total_price)
-            .text = sneaker.getPriceAsString()
+            .text = String.format( Locale.FRANCE, "R$ %.2f", sneaker.price * amount )
 
         dialogLayout
             .findViewById<Button>(R.id.bt_finish_buy)
-            .setOnClickListener {
-                val intent = Intent(this, ThankYouActivity::class.java)
-                intent.putExtra(
-                    Sneaker.KEY,
-                    sneaker )
-                startActivity(intent)
-                finish()
-            }
+            .setOnClickListener( this )
 
         builder.create().show()
+    }
+
+    fun buy() {
+        val intent = Intent( this, ThankYouActivity::class.java )
+
+        intent.putExtra( Sneaker.KEY, sneaker )
+        intent.putExtra( Sneaker.KEY_AMOUNT, amount )
+        startActivity( intent )
+        finish()
     }
 }

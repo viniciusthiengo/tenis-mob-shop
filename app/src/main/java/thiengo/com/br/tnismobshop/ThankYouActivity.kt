@@ -19,6 +19,7 @@ class ThankYouActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val sneaker = intent.getParcelableExtra<Sneaker>(Sneaker.KEY)
+        val amount = intent.getIntExtra(Sneaker.KEY_AMOUNT, 1)
 
         /*
          * Código de rastreamento de compra.
@@ -46,7 +47,8 @@ class ThankYouActivity : AppCompatActivity() {
         /*
          * Preço.
          * */
-        tv_price.text = sneaker.getPriceAsString()
+        tv_price.text = String
+            .format( Locale.FRANCE, "R$ %.2f", sneaker.price * amount )
     }
 
     /*
