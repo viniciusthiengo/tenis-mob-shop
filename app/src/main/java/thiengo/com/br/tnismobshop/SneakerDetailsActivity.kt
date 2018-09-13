@@ -1,6 +1,7 @@
 package thiengo.com.br.tnismobshop
 
 import android.content.Intent
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
@@ -9,104 +10,49 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Button
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_sneaker_details.*
 import kotlinx.android.synthetic.main.content_sneaker_details.*
+import thiengo.com.br.tnismobshop.databinding.ActivitySneakerDetailsBinding
+import thiengo.com.br.tnismobshop.databinding.DialogPaymentBinding
 import thiengo.com.br.tnismobshop.domain.Sneaker
-import thiengo.com.br.tnismobshop.util.Util
-import java.util.*
 
 class SneakerDetailsActivity : AppCompatActivity(),
         View.OnClickListener,
         AdapterView.OnItemSelectedListener {
 
-    lateinit var sneaker : Sneaker
+    lateinit var sneaker: Sneaker
     var amount: Int = 1
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sneaker_details)
-        setSupportActionBar(toolbar)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        fab.setOnClickListener( this )
-
+    override fun onCreate( savedInstanceState: Bundle? ) {
+        super.onCreate( savedInstanceState )
         /*
-         * Foi prefirível utilizar sneaker como uma propriedade local,
-         * pois assim evitaremos a necessidade de sempre ter de verificar
-         * null.
+         * Realizando o bind extamente onde havia o setContentView(),
+         * assim poderemos utilizar as Views em código como elas
+         * eram utilizadas com o setContentView(), isso, pois o vinculo
+         * de layout também ocorre na invocação de
+         * DataBindingUtil.setContentView().
          * */
-        sneaker = intent.getParcelableExtra<Sneaker>(Sneaker.KEY)
+        val activityBinding = DataBindingUtil
+                .setContentView<ActivitySneakerDetailsBinding>(
+                        this,
+                        R.layout.activity_sneaker_details
+                )
+        setSupportActionBar( toolbar )
+        supportActionBar?.setDisplayHomeAsUpEnabled( true )
 
-        /*
-         * Marca.
-         * */
-        iv_brand.setImageResource(sneaker.brand.imageResource)
-        iv_brand.contentDescription = sneaker.brand.name
-
-        /*
-         * Gênero.
-         * */
-        Util.setGenre(sneaker, iv_genre_male, iv_genre_female)
-
-        /*
-         * Galeria de imagens.
-         * */
-        iv_sneaker_01.setImageResource( sneaker.imageResource )
-        iv_sneaker_01.contentDescription = String.format("%s %s", getString(R.string.sneaker), sneaker.model)
-        Util.setImageViewBgColor(this, iv_sneaker_01)
-
-        iv_sneaker_02.setImageResource( sneaker.album[0] )
-        Util.setImageViewBgColor(this, iv_sneaker_02)
-        iv_sneaker_03.setImageResource( sneaker.album[1] )
-        Util.setImageViewBgColor(this, iv_sneaker_03)
-        iv_sneaker_04.setImageResource( sneaker.album[2] )
-        Util.setImageViewBgColor(this, iv_sneaker_04)
-
-        /*
-         * Preços, quantidade em estoque e botão comprar.
-         * */
-        tv_price.text = String.format("%s %s", sneaker.getPriceAsString(), getString(R.string.or_in))
-        tv_price_parcels.text = String.format("%s %s", getString(R.string.until), sneaker.getPriceParcelsAsString())
-        tv_amount.text = sneaker.extraInfo.getStockFormatted(this)
-        bt_buy.setOnClickListener(this)
-
-        sp_amount.setOnItemSelectedListener(this)
-
-        /*
-         * Recomendação, tipo, composição, descrição.
-         * */
-        tv_recommended.text = sneaker.extraInfo.recommended
-        tv_type.text = sneaker.extraInfo.type
-        tv_composition.text = sneaker.extraInfo.composition
-        tv_desc.text = sneaker.extraInfo.fullDescription
-
-        /* RATING, COLOCANDO AS ESTRELAS CORRETAS */
-        tv_rating_amount.text = String.format("%d", sneaker.rating.amount)
-        Util.setStar(window.decorView, R.id.iv_rating_star_01, 1, sneaker.rating.stars)
-        Util.setStar(window.decorView, R.id.iv_rating_star_02, 2, sneaker.rating.stars)
-        Util.setStar(window.decorView, R.id.iv_rating_star_03, 3, sneaker.rating.stars)
-        Util.setStar(window.decorView, R.id.iv_rating_star_04, 4, sneaker.rating.stars)
-        Util.setStar(window.decorView, R.id.iv_rating_star_05, 5, sneaker.rating.stars)
-    }
-
-    /*
-     * Hackcode para que o título da Toolbar seja alterado de
-     * acordo com o tênis acionado em lista.
-     * */
-    override fun onResume() {
-        super.onResume()
-        toolbar.title = sneaker.model
+        sneaker = intent.getParcelableExtra( Sneaker.KEY )
+        activityBinding.sneaker = sneaker
+        sp_amount.setOnItemSelectedListener( this )
     }
 
     /*
      * Somente para apresentarmos o menu item de "adicionar ao
      * carrinho"
      * */
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu( menu: Menu? ): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.menu_sneaker_details, menu)
+        inflater.inflate( R.menu.menu_sneaker_details, menu )
         return true
     }
 
@@ -159,19 +105,22 @@ class SneakerDetailsActivity : AppCompatActivity(),
      * também.
      * */
     fun callPaymentDialog() {
-        val builder = AlertDialog.Builder(this)
-        val dialogLayout = getLayoutInflater()
-                .inflate( R.layout.dialog_payment,null )
+        /*
+         * Inflando o layout junto a classe binding dele gerada.
+         * */
+        val binding = DialogPaymentBinding
+                .inflate( layoutInflater)
 
-        builder.setView(dialogLayout)
+        binding.sneaker = sneaker
+        binding.amountSneakers = amount
 
-        dialogLayout
-            .findViewById<TextView>(R.id.tv_total_price)
-            .text = String.format( Locale.FRANCE, "R$ %.2f", sneaker.price * amount )
+        val builder = AlertDialog.Builder( this )
 
-        dialogLayout
-            .findViewById<Button>(R.id.bt_finish_buy)
-            .setOnClickListener( this )
+        /*
+         * Colocando o layout bound como custom layout do
+         * AlertDialog.
+         * */
+        builder.setView( binding.root )
 
         builder.create().show()
     }

@@ -2,12 +2,11 @@ package thiengo.com.br.tnismobshop.util
 
 import android.content.Context
 import android.content.res.Resources
+import android.databinding.BindingAdapter
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.GradientDrawable
-import android.view.View
 import android.widget.ImageView
-import thiengo.com.br.tnismobshop.R
-import thiengo.com.br.tnismobshop.domain.Sneaker
+import java.util.*
 
 
 class Util {
@@ -18,7 +17,7 @@ class Util {
          * útil para que a border com radius não tenha contraste com as
          * cores laterais da imagem.
          * */
-        fun setImageViewBgColor(context: Context, imageView: ImageView) {
+        fun setImageViewBgColor( context: Context, imageView: ImageView ) {
             val bitmap = (imageView.getDrawable() as BitmapDrawable).bitmap
             /*
              * Estamos obtendo a cor do pixel na coordenada (2.1dp, 2.1dp),
@@ -28,49 +27,53 @@ class Util {
              * 2dp e um background branco e não queremos obtê-lo para a
              * definição dinâmica de imagem de background.
              * */
-            val initPixelPosition = Util.convertDpToPixel(context.resources, 2.1F)
-            val pixel = bitmap.getPixel(initPixelPosition, initPixelPosition)
+            val initPixelPosition = Util.convertDpToPixel( context.resources, 2.1F )
+            val pixel = bitmap.getPixel( initPixelPosition, initPixelPosition )
 
             val bgShape = imageView.background.current as GradientDrawable
-            bgShape.setColor(pixel)
+            bgShape.setColor( pixel )
         }
 
-        fun convertDpToPixel(resources: Resources, dp: Float): Int {
+        fun convertDpToPixel( resources: Resources, dp: Float ): Int {
             val metrics = resources.getDisplayMetrics()
-            val px = dp * (metrics.densityDpi / 160f)
-            return Math.round(px)
+            val px = dp * ( metrics.densityDpi / 160F )
+            return Math.round( px )
         }
 
         /*
-         * Apresenta ou esconde os ImageViews de gênero de acordo com o perfil
-         * do tênis em teste.
+         * Método que simula a criação de uma código de compra
+         * para rastreamento de mercadoria.
          * */
-        fun setGenre(sneaker: Sneaker, male: ImageView, female: ImageView){
-            male.visibility =
-                    if( sneaker.isForMale )
-                        View.VISIBLE
-                    else
-                        View.GONE
+        @JvmStatic
+        fun codeBuyGenerator(): String {
+            val random = Random()
+            var code = ""
 
-            female.visibility =
-                    if( sneaker.isForFemale )
-                        View.VISIBLE
-                    else
-                        View.GONE
+            for( i in 0..18 ){
+                code += random.nextInt( 10 ).toString()
+            }
+            return code
         }
 
         /*
-         * Coloca estrela cheia ou vazia no ImageView de rating de tênis.
+         * Para que o path da imagem seja gerado e então vinculado
+         * ao atributo android:src do ImageView de layout.
          * */
-        fun setStar(parent: View, starResourceId: Int, position: Int, rating: Int){
-            val ivStar = parent.findViewById(starResourceId) as ImageView
+        @JvmStatic
+        fun getImageSource( context: Context, image: Int ) : String =
+                "android.resource://" + context.packageName + "/" + image
 
-            ivStar.setImageResource(
-                    if( position <= rating )
-                        R.drawable.ic_star_black_18dp
-                    else
-                        R.drawable.ic_star_border_white_18dp
-            )
+        /*
+         * Criando um configurador personalizado para que seja
+         * possível adicionar a imagem de tênis ao ImageView
+         * e também invocar o método Util.setImageViewBgColor()
+         * para a configuração de borda de imagem.
+         * */
+        @JvmStatic
+        @BindingAdapter("app:context", "app:src")
+        fun setConfImage( iv: ImageView, context: Context, image: Int ) {
+            iv.setImageResource( image )
+            Util.setImageViewBgColor( context, iv )
         }
     }
 }

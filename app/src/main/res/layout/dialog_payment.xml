@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <import type="java.util.Locale" />
 
         <variable
@@ -311,7 +312,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/tv_total"
                 android:layout_marginTop="-4dp"
-                android:text='@{ String.format(Locale.FRANCE, "R$ %.2f", sneaker.price * amountSneakers) }'
+                android:text='@{ String.format( Locale.FRANCE, "R$ %.2f", sneaker.price * amountSneakers ) }'
                 android:textColor="@color/colorDarkDialog"
                 android:textSize="21sp"
                 android:textStyle="bold|italic" />

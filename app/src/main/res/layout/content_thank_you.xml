@@ -1,129 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:fillViewport="true"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="thiengo.com.br.tnismobshop.ThankYouActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <data>
+        <import type="thiengo.com.br.tnismobshop.util.Util" />
+
+        <import type="java.util.Locale" />
+
+        <variable
+            name="sneaker"
+            type="thiengo.com.br.tnismobshop.domain.Sneaker" />
+
+        <variable
+            name="amountSneakers"
+            type="Integer" />
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="thiengo.com.br.tnismobshop.ThankYouActivity">
 
-        <TextView
-            android:id="@+id/tv_excellent_buy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/excellent_buy"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_tracking_code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_excellent_buy"
-            android:layout_marginTop="18dp"
-            android:textColor="@android:color/white" />
-
-        <TextView
-            android:id="@+id/tv_support_tel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_tracking_code"
-            android:layout_marginTop="4dp"
-            android:text="@string/label_support_shop"
-            android:textColor="@android:color/white" />
-
-        <View
-            android:id="@+id/vv_horizontal_line_01"
-            android:layout_width="match_parent"
-            android:layout_height="1.5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/tv_support_tel"
-            android:layout_marginBottom="14dp"
-            android:layout_marginTop="14dp"
-            android:background="@android:color/white" />
-
-        <ImageView
-            android:id="@+id/iv_sneaker"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/vv_horizontal_line_01"
-            android:background="@drawable/image_view_sneaker"
-            android:contentDescription="@string/desc_sneaker_bought"
-            android:scaleType="fitCenter" />
-
-        <TextView
-            android:id="@+id/tv_model"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/iv_sneaker"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_toEndOf="@+id/iv_sneaker"
-            android:layout_toRightOf="@+id/iv_sneaker"
-            android:textColor="@android:color/white" />
-
-        <ImageView
-            android:id="@+id/iv_brand"
-            android:layout_width="wrap_content"
-            android:layout_height="14dp"
-            android:layout_alignLeft="@+id/tv_model"
-            android:layout_alignStart="@+id/tv_model"
-            android:layout_below="@+id/tv_model"
-            android:layout_marginTop="2dp"
-            android:layout_toEndOf="@+id/iv_sneaker"
-            android:layout_toRightOf="@+id/iv_sneaker"
-            android:contentDescription="@string/desc_sneaker_bought_brand"
-            android:tint="@color/colorPrimaryLight" />
-
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/vv_horizontal_line_01"
-            android:textColor="@android:color/white"
-            android:textStyle="italic" />
-
-        <View
-            android:id="@+id/vv_horizontal_line_02"
-            android:layout_width="match_parent"
-            android:layout_height="1.5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/iv_sneaker"
-            android:layout_marginBottom="14dp"
-            android:layout_marginTop="14dp"
-            android:background="@android:color/white" />
-
-        <Button
-            android:id="@+id/bt_keep_buying"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@drawable/button_blue_background"
-            android:onClick="backToTenisShop"
-            android:text="@string/keep_buying"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white" />
-    </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_excellent_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/excellent_buy"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_tracking_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_excellent_buy"
+                android:layout_marginTop="18dp"
+                android:text='@{ String.format("%s %s", @string/track_code_label, Util.codeBuyGenerator()) }'
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tv_support_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_tracking_code"
+                android:layout_marginTop="4dp"
+                android:text="@string/label_support_shop"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:id="@+id/vv_horizontal_line_01"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tv_support_tel"
+                android:layout_marginBottom="14dp"
+                android:layout_marginTop="14dp"
+                android:background="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/iv_sneaker"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/vv_horizontal_line_01"
+                android:background="@drawable/image_view_sneaker"
+                android:contentDescription='@{ String.format( "%s %s", @string/sneaker, sneaker.model ) }'
+                android:scaleType="fitCenter"
+                app:context="@{ context }"
+                app:src="@{ sneaker.imageResource }" />
+
+            <TextView
+                android:id="@+id/tv_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_sneaker"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/iv_sneaker"
+                android:layout_toRightOf="@+id/iv_sneaker"
+                android:text="@{ sneaker.model }"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/iv_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_alignLeft="@+id/tv_model"
+                android:layout_alignStart="@+id/tv_model"
+                android:layout_below="@+id/tv_model"
+                android:layout_marginTop="2dp"
+                android:layout_toEndOf="@+id/iv_sneaker"
+                android:layout_toRightOf="@+id/iv_sneaker"
+                android:contentDescription="@{ sneaker.brand.name }"
+                android:src="@{ Util.getImageSource( context, sneaker.brand.imageResource ) }"
+                android:tint="@color/colorPrimaryLight" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/vv_horizontal_line_01"
+                android:text='@{ String.format(Locale.FRANCE, "R$ %.2f", sneaker.price * amountSneakers) }'
+                android:textColor="@android:color/white"
+                android:textStyle="italic" />
+
+            <View
+                android:id="@+id/vv_horizontal_line_02"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/iv_sneaker"
+                android:layout_marginBottom="14dp"
+                android:layout_marginTop="14dp"
+                android:background="@android:color/white" />
+
+            <Button
+                android:id="@+id/bt_keep_buying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/button_blue_background"
+                android:onClick="backToTenisShop"
+                android:text="@string/keep_buying"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>
