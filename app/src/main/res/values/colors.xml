@@ -14,4 +14,7 @@
     <color name="colorContentLabel">#CCCCCC</color>
 
     <color name="colorFreeDelivery">#CCFFFFFF</color>
+
+    <color name="colorDialogLine">#E4E6E7</color>
+    <color name="colorDialogPopUpSpinner">#EEEEEE</color>
 </resources>

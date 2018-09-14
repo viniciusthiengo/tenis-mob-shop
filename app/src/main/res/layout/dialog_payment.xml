@@ -45,7 +45,7 @@
                 android:layout_below="@+id/tv_title"
                 android:layout_marginBottom="6dp"
                 android:layout_marginTop="6dp"
-                android:background="#e4e6e7" />
+                android:background="@color/colorDialogLine" />
 
             <ImageView
                 android:id="@+id/iv_cards"
@@ -67,7 +67,7 @@
                 android:layout_below="@+id/iv_cards"
                 android:layout_marginBottom="6dp"
                 android:layout_marginTop="6dp"
-                android:background="#e4e6e7" />
+                android:background="@color/colorDialogLine" />
 
             <TextView
                 android:id="@+id/tv_card_number"
@@ -185,7 +185,7 @@
                 android:entries="@array/months"
                 android:paddingBottom="12dp"
                 android:paddingTop="12dp"
-                android:popupBackground="#eee"
+                android:popupBackground="@color/colorDialogPopUpSpinner"
                 android:textColor="@android:color/white"
                 android:theme="@style/AppTheme.SpinnerThemeDark" />
 
@@ -228,7 +228,7 @@
                 android:entries="@array/years"
                 android:paddingBottom="12dp"
                 android:paddingTop="12dp"
-                android:popupBackground="#eee"
+                android:popupBackground="@color/colorDialogPopUpSpinner"
                 android:textColor="@android:color/white"
                 android:theme="@style/AppTheme.SpinnerThemeDark" />
 
@@ -245,7 +245,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_toEndOf="@+id/sp_card_expired_year"
                 android:layout_toRightOf="@+id/sp_card_expired_year"
-                android:background="#e4e6e7" />
+                android:background="@color/colorDialogLine" />
 
             <TextView
                 android:id="@+id/tv_buy_parcels"
@@ -272,7 +272,7 @@
                 android:entries="@array/parcels"
                 android:paddingBottom="12dp"
                 android:paddingTop="12dp"
-                android:popupBackground="#eee"
+                android:popupBackground="@color/colorDialogPopUpSpinner"
                 android:textColor="@android:color/white"
                 android:theme="@style/AppTheme.SpinnerThemeDark" />
 

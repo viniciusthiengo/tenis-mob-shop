@@ -41,7 +41,7 @@ class Util {
         }
 
         /*
-         * Método que simula a criação de uma código de compra
+         * Método que simula a criação de um código de compra
          * para rastreamento de mercadoria.
          * */
         @JvmStatic
