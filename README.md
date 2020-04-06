@@ -1,4 +1,4 @@
-# MobMotors (Kotlin Android)
+# Tênis Mob Shop (Kotlin Android)
 
 Projeto Kotlin Android da segunda parte do artigo [Data Binding Para Vinculo de Dados na UI Android](https://www.thiengo.com.br/data-binding-para-vinculo-de-dados-na-ui-android#title-21) do Blog [Thiengo.com.br](https://www.thiengo.com.br). Artigo que discute em detalhes a Data Binding API, uma API que nos permite diminuir o código boilerplate de vinculo de dados e métodos à interface do usuário.
 
@@ -24,11 +24,11 @@ O artigo do projeto deste repositório é o primeiro artigo de uma série de tr�
 
 A ordem indicada para estudo dos artigos é:
 
-1º Data Binding Para Vinculo de Dados na UI Android;
+1. Data Binding Para Vinculo de Dados na UI Android;
 
-2º [Observable Binding Para Atualização na UI Android](https://www.thiengo.com.br/observable-binding-para-atualizacao-na-ui-android);
+2. [Observable Binding Para Atualização na UI Android](https://www.thiengo.com.br/observable-binding-para-atualizacao-na-ui-android);
 
-3º [Como Utilizar Métodos Binding Adapter no Android](https://www.thiengo.com.br/como-utilizar-metodos-binding-adapter-no-android).
+3. [Como Utilizar Métodos Binding Adapter no Android](https://www.thiengo.com.br/como-utilizar-metodos-binding-adapter-no-android).
 
 ## Dúvidas e dicas
 
