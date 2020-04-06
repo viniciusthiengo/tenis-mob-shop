@@ -24,7 +24,7 @@ O artigo do projeto deste repositório é o primeiro artigo de uma série de tr�
 
 A ordem indicada para estudo dos artigos é:
 
-1. Data Binding Para Vinculo de Dados na UI Android;
+1. [Data Binding Para Vinculo de Dados na UI Android](https://www.thiengo.com.br/data-binding-para-vinculo-de-dados-na-ui-android);
 
 2. [Observable Binding Para Atualização na UI Android](https://www.thiengo.com.br/observable-binding-para-atualizacao-na-ui-android);
 
