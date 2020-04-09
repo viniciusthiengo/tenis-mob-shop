@@ -1,6 +1,8 @@
 # Tênis Mob Shop (Kotlin Android)
 
-Projeto Kotlin Android da segunda parte do artigo [Data Binding Para Vinculo de Dados na UI Android](https://www.thiengo.com.br/data-binding-para-vinculo-de-dados-na-ui-android#title-21) do Blog [Thiengo.com.br](https://www.thiengo.com.br). Artigo que discute em detalhes a Data Binding API, uma API que nos permite diminuir o código boilerplate de vinculo de dados e métodos à interface do usuário.
+Projeto Kotlin Android da segunda parte do artigo [Data Binding Para Vinculo de Dados na UI Android](https://www.thiengo.com.br/data-binding-para-vinculo-de-dados-na-ui-android#title-21) do Blog [Thiengo.com.br](https://www.thiengo.com.br).
+
+Artigo que discute em detalhes a Data Binding API, uma API que nos permite diminuir o código boilerplate de vinculo de dados e métodos à interface do usuário.
 
 <img src="https://www.thiengo.com.br/img/post/normal/25kkh1lhm248v629e8lthm15v1c4bfabb8a44f44e4f469d50b207b71a1.gif" width="240" alt="Animação app de tênis com a Data Binding API">
 
